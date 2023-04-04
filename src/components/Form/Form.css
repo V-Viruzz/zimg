@@ -1,0 +1,25 @@
+.form-button {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+  background: #0a9887;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  border-radius: 12px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.convert-button {
+  background: #0a9887;
+}
+
+#file-upload {
+  display: none;
+}
