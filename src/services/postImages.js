@@ -1,5 +1,5 @@
 // const API = 'http://localhost:3000'
-const API = 'https://zimg-jxvq6bbx1-viruzzz0.vercel.app'
+const API = 'https://zimg-api.vercel.app'
 
 const postImages = async (formData) => {
   try {

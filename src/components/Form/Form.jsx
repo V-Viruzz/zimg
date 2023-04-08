@@ -3,7 +3,7 @@ import postImages from '../../services/postImages'
 import './Form.css'
 
 // const API = 'http://localhost:3000'
-const API = 'https://zimg-jxvq6bbx1-viruzzz0.vercel.app'
+const API = 'https://zimg-api.vercel.app'
 
 function Form ({ setSelectProps, selectProps, setImage, image }) {
   const [fileImage, setFileImage] = useState(null)
