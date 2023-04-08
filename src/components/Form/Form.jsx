@@ -54,7 +54,7 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
     }
 
     const props = JSON.stringify(selectProps)
-    fetch(API, {
+    fetch(`${API}/props`, {
       method: 'POST',
       headers: {
         Origin: API,
