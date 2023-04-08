@@ -1,9 +1,12 @@
+// const API = 'http://localhost:3000'
+const API = 'https://zimg-jxvq6bbx1-viruzzz0.vercel.app'
+
 const postImages = async (formData) => {
   try {
-    const response = await fetch('http://localhost:3000/upload', {
+    const response = await fetch(`${API}/upload`, {
       method: 'POST',
       headers: {
-        Origin: 'http://localhost:3000'
+        Origin: API
       },
       body: formData
     })

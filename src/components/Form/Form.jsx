@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import postImages from '../../services/postImages'
 import './Form.css'
 
+// const API = 'http://localhost:3000'
+const API = 'https://zimg-jxvq6bbx1-viruzzz0.vercel.app'
+
 function Form ({ setSelectProps, selectProps, setImage, image }) {
   const [fileImage, setFileImage] = useState(null)
 
@@ -51,10 +54,10 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
     }
 
     const props = JSON.stringify(selectProps)
-    fetch('http://localhost:3000/props', {
+    fetch(API, {
       method: 'POST',
       headers: {
-        Origin: 'http://localhost:3000',
+        Origin: API,
         'Content-Type': 'application/json'
       },
       body: props
