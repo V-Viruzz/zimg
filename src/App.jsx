@@ -1,7 +1,7 @@
 import useImage from './hooks/useImage'
-import Preview from './components/Preview/Preview'
 import Form from './components/Form/Form'
 import SelectProps from './components/SelectProps/SelectProps'
+import Preview from './components/Preview/Preview'
 import './App.css'
 
 function App () {
