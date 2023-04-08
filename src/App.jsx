@@ -1,7 +1,7 @@
 import useImage from './hooks/useImage'
 import Form from './components/Form/Form'
 import SelectProps from './components/SelectProps/SelectProps'
-import Preview from './components/Preview/Preview'
+import PreviewImage from './components/PreviewImage/PreviewImage'
 import './App.css'
 
 function App () {
@@ -26,7 +26,7 @@ function App () {
           setImage={setImage}
         />
 
-        <Preview
+        <PreviewImage
           image={image}
           setImage={setImage}
         />
