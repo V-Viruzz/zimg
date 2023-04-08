@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './Preview.css'
+import './PreviewImage.css'
 
-function Preview ({ image, setImage }) {
+function PreviewImage ({ image, setImage }) {
   const [hover, setHover] = useState(false)
 
   const handleHover = () => {
@@ -63,4 +63,4 @@ function Preview ({ image, setImage }) {
   )
 }
 
-export default Preview
+export default PreviewImage
