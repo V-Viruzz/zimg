@@ -1,15 +1,16 @@
-// const API = 'http://localhost:3000'
-const API = 'https://zimg-api.vercel.app'
+const API_URL = import.meta.env.VITE_API_URL
 
 const postImages = async (formData) => {
   try {
-    const response = await fetch(`${API}/upload`, {
+    const response = await fetch(`${API_URL}/upload`, {
       method: 'POST',
       headers: {
-        Origin: API
+        Origin: API_URL
       },
       body: formData
     })
+
+    // console.log(apiUrl)
 
     if (!response.ok) {
       throw new Error('Error sending image')

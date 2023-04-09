@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import postImages from '../../services/postImages'
 import './Form.css'
 
-// const API = 'http://localhost:3000'
-const API = 'https://zimg-api.vercel.app'
+const API_URL = import.meta.env.VITE_API_URL
 
 function Form ({ setSelectProps, selectProps, setImage, image }) {
   const [fileImage, setFileImage] = useState(null)
@@ -54,10 +53,10 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
     }
 
     const props = JSON.stringify(selectProps)
-    fetch(`${API}/props`, {
+    fetch(`${API_URL}/props`, {
       method: 'POST',
       headers: {
-        Origin: API,
+        Origin: API_URL,
         'Content-Type': 'application/json'
       },
       body: props

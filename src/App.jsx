@@ -6,7 +6,6 @@ import './App.css'
 
 function App () {
   const { setImage, image, setSelectProps, selectProps } = useImage()
-
   return (
     <div className='App'>
       <header>
