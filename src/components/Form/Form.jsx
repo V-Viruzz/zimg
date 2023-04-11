@@ -17,7 +17,8 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
       .then(data => {
         setSelectProps(prevState => ({
           ...prevState,
-          filename: data.filename
+          filename: data.filename,
+          id: data.id
         }))
       })
   }, [fileImage])
