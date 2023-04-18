@@ -33,6 +33,14 @@ section {
 }
 
 main {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+
+  min-height: 560px;
+  height: 80%;
+}
+
+/* main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,48 +48,99 @@ main {
 
   min-height: 560px;
   height: 80%;
+} */
+
+@media (max-width: 500px) {
+  @media (min-height: 680px) {
+    .preview {
+      width: 270px;
+      height: 270px;
+    }
+
+    .preview .preview-conteiner-btn-exit {
+      width: 270px;
+      height: 270px;
+    }
+
+    .preview img {
+      max-width: 270px;
+      max-height: 270px;
+    }
+
+    main {
+      height: 650px;
+    }
+  }
 }
 
-@media (min-height: 680px) {
-  .preview {
-    width: 270px;
-    height: 270px;
-  }
+@media (max-width: 500px) {
+  @media (min-height: 900px) {
+    .preview {
+      width: 337px;
+      height: 337px;
+    }
 
-  .preview .preview-conteiner-btn-exit {
-    width: 270px;
-    height: 270px;
-  }
+    .preview .preview-conteiner-btn-exit {
+      width: 337px;
+      height: 337px;
+    }
 
-  .preview img {
-    max-width: 270px;
-    max-height: 270px;
+    .preview img {
+      max-width: 337px;
+      max-height: 337px;
+    }
+
+    main {
+      height: 770px;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    font-size: 16px;
   }
 
   main {
-    height: 650px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
 
-  }
-}
-
-@media (min-height: 900px) {
-  .preview {
-    width: 337px;
-    height: 337px;
+    min-height: 560px;
+    height: 80%;
   }
 
-  .preview .preview-conteiner-btn-exit {
-    width: 337px;
-    height: 337px;
+  .section-descript {
+
+    margin: 20px 0;
   }
 
-  .preview img {
-    max-width: 337px;
-    max-height: 337px;
+  .section-input {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
   }
 
-  main {
-    height: 770px;
+  .section-props {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    margin-top: 100px;
+  }
 
+  .section-image {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    gap: 20px;
+  }
+
+  .form-button {
+    font-size: 20px;
+    width: 265px;
+    height: 60px;
   }
 }

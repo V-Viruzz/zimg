@@ -57,3 +57,28 @@
 .image-info p {
   margin: 9px 0;
 }
+
+
+@media (min-width: 900px) {
+  /* body {
+    font-size: 20px;
+  } */
+
+  .preview {
+    width: 470px;
+    height: 380px;
+    font-size: 1.5em;
+  }
+
+  .preview .preview-conteiner-btn-exit {
+    width: 470px;
+    height: 380px;
+  }
+
+  .preview img {
+    border-radius: 12px;
+    max-width: 470px;
+    max-height: 380px;
+  }
+
+}
