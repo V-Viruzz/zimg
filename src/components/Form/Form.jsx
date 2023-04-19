@@ -55,7 +55,7 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
 
     const props = JSON.stringify(selectProps)
     fetch(`${API_URL}/props`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         Origin: API_URL,
         'Content-Type': 'application/json'
