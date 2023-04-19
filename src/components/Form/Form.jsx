@@ -23,15 +23,31 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
       })
   }, [fileImage])
 
+  const byteToMb = (bytes) => {
+    const kb = bytes / 1024
+    const mb = kb / 1024
+    const result = kb >= 1024 ? `${mb.toFixed(2)} mb` : `${kb.toFixed(2)} kb`
+    return result
+  }
+
+  const nameShort = (name) => {
+    const nameOnly = name.split('.')[0]
+    const format = name.split('.').pop()
+    const fit = nameOnly.substr(0, 5)
+
+    return nameOnly.length > 6 ? `${fit}.${format}` : `${nameOnly}.${format}`
+  }
+
   const handleChange = event => {
     const [file] = event.target.files
+    const size = byteToMb(file.size)
     const format = file.type.split('/')[1]
     setFileImage(event.target.files[0])
     setSelectProps(prevState => ({
       ...prevState,
       format
     }))
-    const name = file.name
+    const name = nameShort(file.name)
     const url = URL.createObjectURL(file)
     const img = new window.Image()
     img.src = url
@@ -39,14 +55,14 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
       const width = this.naturalWidth
       const height = this.naturalHeight
 
-      setImage({ width, height, name, url })
+      setImage({ width, height, name, url, size })
     }
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    if (selectProps.width === undefined && selectProps.height === undefined && selectProps.format) {
+    if (selectProps.width === undefined && selectProps.height === undefined && selectProps.format === undefined) {
       const msg = 'Pass at least one parameter'
       window.alert(msg, 'Alert Title')
       console.log('no props image')

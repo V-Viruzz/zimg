@@ -48,14 +48,21 @@ function PreviewImage ({ image, setImage }) {
           {
             image
               ? `${image.name}`
-              : 'image.jpg'
+              : ''
             }
         </p>
         <p>
           {
             image
               ? `${image.width}x${image.height}`
-              : '720x400'
+              : ''
+            }
+        </p>
+        <p>
+          {
+            image
+              ? `${image.size}`
+              : ''
             }
         </p>
       </div>
