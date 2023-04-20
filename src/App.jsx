@@ -1,12 +1,10 @@
-import useImage from './hooks/useImage'
 import Form from './components/Form/Form'
 import SelectProps from './components/SelectProps/SelectProps'
 import PreviewImage from './components/PreviewImage/PreviewImage'
+import { ImageProvider } from './context/image'
 import './App.css'
 
 function App () {
-  const { setImage, image } = useImage()
-
   return (
     <div className='App'>
       <header>
@@ -19,15 +17,10 @@ function App () {
           <p>Change format or resolution of your image</p>
         </section>
 
-        <Form
-          image={image}
-          setImage={setImage}
-        />
-
-        <PreviewImage
-          image={image}
-          setImage={setImage}
-        />
+        <ImageProvider>
+          <Form />
+          <PreviewImage />
+        </ImageProvider>
 
         <SelectProps />
 

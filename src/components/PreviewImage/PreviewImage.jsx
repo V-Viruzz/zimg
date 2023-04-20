@@ -1,19 +1,21 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { ImageContext } from '../../context/image'
 import './PreviewImage.css'
 
-function PreviewImage ({ image, setImage }) {
+function PreviewImage () {
   const [hover, setHover] = useState(false)
+  const { imagePreview, setImagePreview } = useContext(ImageContext)
 
   const handleHover = () => {
     setHover(!hover)
   }
   const handleClick = () => {
-    window.localStorage.setItem('save-preview', image)
+    window.localStorage.setItem('save-preview', imagePreview)
     const inputElement = document.getElementById('file-upload')
 
     // Restablece el valor del campo de entrada de tipo file
     inputElement.value = ''
-    setImage(null)
+    setImagePreview(null)
 
     handleHover()
   }
@@ -31,14 +33,14 @@ function PreviewImage ({ image, setImage }) {
       >
         <div className='preview-conteiner-btn-exit'>
           {
-          image
+          imagePreview
             ? <div className='btn-exit' style={estilo} onClick={handleClick}>×</div>
             : ''
           }
         </div>
         {
-        image
-          ? <img id='preview-selected-image' src={image.url} />
+        imagePreview
+          ? <img id='preview-selected-image' src={imagePreview.url} />
           : <h3>preview image</h3>
         }
 
@@ -46,22 +48,22 @@ function PreviewImage ({ image, setImage }) {
       <div className='image-info'>
         <p>
           {
-            image
-              ? `${image.name}`
+            imagePreview
+              ? `${imagePreview.name}`
               : ''
             }
         </p>
         <p>
           {
-            image
-              ? `${image.width}x${image.height}`
+            imagePreview
+              ? `${imagePreview.width}x${imagePreview.height}`
               : ''
             }
         </p>
         <p>
           {
-            image
-              ? `${image.size}`
+            imagePreview
+              ? `${imagePreview.size}`
               : ''
             }
         </p>
