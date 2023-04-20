@@ -9,7 +9,6 @@ function useImage () {
     setImage,
     selectProps,
     setSelectProps
-
   }
 }
 

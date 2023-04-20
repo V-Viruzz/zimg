@@ -1,27 +1,12 @@
-import { useEffect, useState } from 'react'
-import postImages from '../../services/postImages'
+// import { useEffect, useState } from 'react'
+// import postImages from '../../services/postImages'
+import useImageUploader from '../../hooks/useImageUploader'
 import './Form.css'
 
 const API_URL = import.meta.env.VITE_API_URL || process.env.VITE_API_URL
 
-function Form ({ setSelectProps, selectProps, setImage, image }) {
-  const [fileImage, setFileImage] = useState(null)
-
-  useEffect(() => {
-    if (!fileImage) return
-
-    const formData = new FormData()
-    formData.append('file', fileImage)
-
-    postImages(formData)
-      .then(data => {
-        setSelectProps(prevState => ({
-          ...prevState,
-          filename: data.filename,
-          id: data.id
-        }))
-      })
-  }, [fileImage])
+function Form ({ setImage, image }) {
+  const { setFileImage, props } = useImageUploader(null)
 
   const byteToMb = (bytes) => {
     const kb = bytes / 1024
@@ -40,14 +25,12 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
 
   const handleChange = event => {
     const [file] = event.target.files
+    console.log(file)
     const size = byteToMb(file.size)
-    const format = file.type.split('/')[1]
-    setFileImage(event.target.files[0])
-    setSelectProps(prevState => ({
-      ...prevState,
-      format
-    }))
     const name = nameShort(file.name)
+
+    setFileImage(event.target.files[0])
+
     const url = URL.createObjectURL(file)
     const img = new window.Image()
     img.src = url
@@ -62,21 +45,21 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    if (selectProps.width === undefined && selectProps.height === undefined && selectProps.format === undefined) {
+    if (props.width === undefined && props.height === undefined && props.format === undefined) {
       const msg = 'Pass at least one parameter'
       window.alert(msg, 'Alert Title')
       console.log('no props image')
       return
     }
 
-    const props = JSON.stringify(selectProps)
+    const propsPost = JSON.stringify(props)
     fetch(`${API_URL}/props`, {
       method: 'POST',
       headers: {
         Origin: API_URL,
         'Content-Type': 'application/json'
       },
-      body: props
+      body: propsPost
     })
       .then(res => res.blob())
       .then(blob => {
@@ -84,7 +67,7 @@ function Form ({ setSelectProps, selectProps, setImage, image }) {
         const url = window.URL.createObjectURL(new window.Blob([blob]))
         const link = document.createElement('a')
         link.href = url
-        link.setAttribute('download', `my-image.${selectProps.format}`)
+        link.setAttribute('download', `my-image.${props.format}`)
         document.body.appendChild(link)
         link.click()
       })

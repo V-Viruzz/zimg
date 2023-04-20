@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { PropsContext } from '../../context/props'
 import './SelectProps.css'
 
-function SelectProps ({ setSelectProps }) {
+function SelectProps () {
   const [width, setWidth] = useState('')
   const [height, setHeight] = useState('')
+
+  const { setSelectProps } = useContext(PropsContext)
+
   return (
     <section className='section-props'>
       <div>

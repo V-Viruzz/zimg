@@ -5,7 +5,7 @@ import PreviewImage from './components/PreviewImage/PreviewImage'
 import './App.css'
 
 function App () {
-  const { setImage, image, setSelectProps, selectProps } = useImage()
+  const { setImage, image } = useImage()
 
   return (
     <div className='App'>
@@ -20,8 +20,6 @@ function App () {
         </section>
 
         <Form
-          setSelectProps={setSelectProps}
-          selectProps={selectProps}
           image={image}
           setImage={setImage}
         />
@@ -31,9 +29,7 @@ function App () {
           setImage={setImage}
         />
 
-        <SelectProps
-          setSelectProps={setSelectProps}
-        />
+        <SelectProps />
 
       </main>
 
