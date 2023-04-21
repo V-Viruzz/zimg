@@ -14,7 +14,7 @@ function Form () {
     setImagePreviewNewFile(file)
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = event => {
     event.preventDefault()
     postProps(props)
   }
