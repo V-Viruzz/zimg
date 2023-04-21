@@ -25,7 +25,7 @@ function useImageUploader (file) {
       })
   }, [fileImage])
 
-  return { setFileImage, props: selectProps }
+  return { uploadImage: setFileImage, props: selectProps }
 }
 
 export default useImageUploader
