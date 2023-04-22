@@ -16,6 +16,15 @@
   justify-content: center;
 }
 
+form .form-button-uploading {
+  background: #095950;
+  color: #858585;
+}
+
+form .form-button-uploading:hover {
+  border: none;
+}
+
 .convert-button {
   background: #0a9887;
 }

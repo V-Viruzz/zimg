@@ -1,15 +1,22 @@
-import React from 'react'
+import { useContext } from 'react'
+import { ImageContext } from '../../context/image'
 
 function LabelButton ({ image }) {
+  const { uploading } = useContext(ImageContext)
+
   if (image) {
     return (
-      <button className='form-button convert-button' type='submit'>Convert</button>
+      <button
+        className={`form-button convert-button ${uploading ? 'form-button-uploading' : null}`}
+        type='submit'
+      >Convert
+      </button>
     )
   }
 
   return (
     <label
-      className='form-button'
+      className={`form-button ${uploading ? 'form-button-uploading' : null}`}
       htmlFor='file-upload'
       onClick={null}
     >Select file

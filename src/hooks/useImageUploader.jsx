@@ -1,11 +1,13 @@
 
-import { useEffect, useContext, useState } from 'react'
 import postImages from '../services/postImages'
+import { useEffect, useContext, useState } from 'react'
 import { PropsContext } from '../context/props'
+import { ImageContext } from '../context/image'
 
 function useImageUploader (file) {
   const [fileImage, setFileImage] = useState(file)
   const { selectProps, setSelectProps } = useContext(PropsContext)
+  const { setUploading } = useContext(ImageContext)
 
   useEffect(() => {
     if (!fileImage) return
@@ -13,7 +15,7 @@ function useImageUploader (file) {
     const format = fileImage.type.split('/')[1]
     const formData = new FormData()
     formData.append('file', fileImage)
-
+    setUploading(true)
     postImages(formData)
       .then(data => {
         setSelectProps(prevState => ({
@@ -22,6 +24,7 @@ function useImageUploader (file) {
           id: data.id,
           format
         }))
+        setUploading(false)
       })
   }, [fileImage])
 

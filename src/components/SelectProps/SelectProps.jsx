@@ -5,8 +5,27 @@ import './SelectProps.css'
 function SelectProps () {
   const [width, setWidth] = useState('')
   const [height, setHeight] = useState('')
-
   const { setSelectProps } = useContext(PropsContext)
+
+  const handleWidthChange = (event) => {
+    const date = parseInt(event.target.value)
+    if (isNaN(date)) return
+    setWidth(date)
+    setSelectProps(prevState => ({
+      ...prevState,
+      width: date
+    }))
+  }
+
+  const handleHeightChange = (event) => {
+    const date = parseInt(event.target.value)
+    if (isNaN(date)) return
+    setHeight(date)
+    setSelectProps(prevState => ({
+      ...prevState,
+      height: date
+    }))
+  }
 
   return (
     <section className='section-props'>
@@ -32,31 +51,13 @@ function SelectProps () {
       <div><input
         placeholder='width'
         value={width}
-        type='text' onChange={(event) => {
-          const date = parseInt(event.target.value)
-          if (isNaN(date)) return
-          setWidth(date)
-          setSelectProps(prevState => ({
-            ...prevState,
-            width: date
-
-          }))
-        }}
+        type='text' onChange={handleWidthChange}
            />
       </div>
       <div><input
         placeholder='height'
         value={height}
-        type='text' onChange={(event) => {
-          const date = parseInt(event.target.value)
-          if (isNaN(date)) return
-          setHeight(date)
-          setSelectProps(prevState => ({
-            ...prevState,
-            height: date
-
-          }))
-        }}
+        type='text' onChange={handleHeightChange}
            />
       </div>
 

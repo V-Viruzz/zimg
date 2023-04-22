@@ -9,7 +9,6 @@ function App () {
     <div className='App'>
       <header>
         <h1>Convertor</h1>
-
       </header>
 
       <main>
@@ -23,9 +22,7 @@ function App () {
         </ImageProvider>
 
         <SelectProps />
-
       </main>
-
     </div>
   )
 }

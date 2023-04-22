@@ -4,11 +4,10 @@ import './PreviewImage.css'
 
 function PreviewImage () {
   const [hover, setHover] = useState(false)
-  const { imagePreview, setImagePreview } = useContext(ImageContext)
+  const { imagePreview, setImagePreview, uploading } = useContext(ImageContext)
 
-  const handleHover = () => {
-    setHover(!hover)
-  }
+  const handleHover = () => setHover(!hover)
+
   const handleClick = () => {
     window.localStorage.setItem('save-preview', imagePreview)
     const inputElement = document.getElementById('file-upload')
@@ -23,6 +22,31 @@ function PreviewImage () {
   const estilo = {
     display: hover ? 'block' : 'none'
   }
+
+  const Information = () => {
+    return (
+      <>
+        {
+        imagePreview
+          ? <p>{imagePreview.name} </p>
+          : ''
+        }
+
+        {
+        imagePreview
+          ? <p>{imagePreview.width}x${imagePreview.height}</p>
+          : ''
+        }
+
+        {
+        imagePreview
+          ? <p>{imagePreview.size}</p>
+          : ''
+        }
+      </>
+    )
+  }
+
   return (
     <section className='section-image'>
 
@@ -46,27 +70,13 @@ function PreviewImage () {
 
       </div>
       <div className='image-info'>
-        <p>
-          {
-            imagePreview
-              ? `${imagePreview.name}`
-              : ''
-            }
-        </p>
-        <p>
-          {
-            imagePreview
-              ? `${imagePreview.width}x${imagePreview.height}`
-              : ''
-            }
-        </p>
-        <p>
-          {
-            imagePreview
-              ? `${imagePreview.size}`
-              : ''
-            }
-        </p>
+
+        {
+        uploading
+          ? <p>uploading file...</p>
+          : <Information />
+        }
+
       </div>
     </section>
   )

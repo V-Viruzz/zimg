@@ -96,6 +96,7 @@ main {
   }
 }
 
+/* Estilos de escritorio o table */
 @media (min-width: 900px) {
   body {
     font-size: 16px;
@@ -108,6 +109,7 @@ main {
 
     min-height: 560px;
     height: 80%;
+    margin: 0 85px;
   }
 
   .section-descript {
