@@ -16,6 +16,10 @@
   justify-content: center;
 }
 
+.form-button:hover {
+  background: #0abba6;
+}
+
 form .form-button-uploading {
   background: #095950;
   color: #858585;

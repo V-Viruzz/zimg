@@ -49,13 +49,13 @@ function SelectProps () {
       </div>
 
       <div><input
-        placeholder='width'
+        placeholder='Width'
         value={width}
         type='text' onChange={handleWidthChange}
            />
       </div>
       <div><input
-        placeholder='height'
+        placeholder='Height'
         value={height}
         type='text' onChange={handleHeightChange}
            />

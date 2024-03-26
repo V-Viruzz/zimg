@@ -65,7 +65,7 @@ function PreviewImage () {
         {
         imagePreview
           ? <img id='preview-selected-image' src={imagePreview.url} />
-          : <h3>preview image</h3>
+          : <p>Image preview</p>
         }
 
       </div>

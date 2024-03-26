@@ -8,7 +8,7 @@ function App () {
   return (
     <div className='App'>
       <header>
-        <h1>Convertor</h1>
+        <h1>Zimg</h1>
       </header>
 
       <main>

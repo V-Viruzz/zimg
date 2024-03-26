@@ -14,7 +14,9 @@
   max-height: 200px;
 }
 
-.preview h3 {
+.preview p {
+  font-size: larger;
+  font-weight: 600;
   color: #636363;
 }
 
