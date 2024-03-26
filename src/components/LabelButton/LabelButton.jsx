@@ -9,6 +9,7 @@ function LabelButton ({ image }) {
       <button
         className={`form-button convert-button ${uploading ? 'form-button-uploading' : null}`}
         type='submit'
+        disabled={!uploading}
       >Convert
       </button>
     )

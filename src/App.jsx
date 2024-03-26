@@ -13,7 +13,7 @@ function App () {
 
       <main>
         <section className='section-descript'>
-          <p>Change format or resolution of your image</p>
+          <p>Change image format or resolution</p>
         </section>
 
         <ImageProvider>
