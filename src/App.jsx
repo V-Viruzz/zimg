@@ -2,26 +2,30 @@ import Form from './components/Form/Form'
 import SelectProps from './components/SelectProps/SelectProps'
 import PreviewImage from './components/PreviewImage/PreviewImage'
 import { ImageProvider } from './context/image'
-import './App.css'
+import style from './App.module.css'
+import '@fontsource-variable/outfit'
+import Header from './components/Header/Header'
+import FileInformation from './components/FileInformation/FileInformation'
 
 function App () {
   return (
-    <div className='App'>
-      <header>
-        <h1>Zimg</h1>
-      </header>
+    <div className={style.containerApp}>
+      <Header />
 
-      <main>
-        <section className='section-descript'>
+      <main className={style.main}>
+        {/* <section className='section-descript'>
           <p>Change image format or resolution</p>
-        </section>
+        </section> */}
 
         <ImageProvider>
-          <Form />
           <PreviewImage />
-        </ImageProvider>
 
-        <SelectProps />
+          <section className={style.container}>
+            <Form />
+            <FileInformation />
+            <SelectProps />
+          </section>
+        </ImageProvider>
       </main>
     </div>
   )

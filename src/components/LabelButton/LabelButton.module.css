@@ -1,0 +1,39 @@
+.formButton {
+  display: flex;
+  width: 123px;
+  height: 48px;
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+  background: #05CD77;
+  color: #000;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.03rem;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.formButton:hover {
+  background: #05b568;
+}
+
+.formButton:active {
+  background: #05a15d;
+}
+
+.formButtonUploading {
+  background: #037e49;
+  color: #858585;
+}
+
+.formButtonUploading:hover {
+  border: none;
+}
+
+.convertButton {
+  background: #05CD77;
+}

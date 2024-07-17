@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || process.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL ?? process.env.VITE_API_URL
 
 function postProps (props) {
   const isProps = props.width === undefined &&
@@ -23,7 +23,6 @@ function postProps (props) {
   })
     .then(res => res.blob())
     .then(blob => {
-      console.log(blob.size)
       const url = window.URL.createObjectURL(new window.Blob([blob]))
       const link = document.createElement('a')
       link.href = url

@@ -10,14 +10,11 @@ const postImages = async (formData) => {
       body: formData
     })
 
-    // console.log(apiUrl)
-
     if (!response.ok) {
       throw new Error('Error sending image')
     }
 
     const data = await response.json()
-    console.log('Server response:', data)
     return data
   } catch (error) {
     console.error(error)

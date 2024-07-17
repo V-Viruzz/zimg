@@ -1,0 +1,45 @@
+/* .containerApp{} */
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.main section:nth-child(1) {
+  order: 2;
+
+}
+
+.main section:nth-child(2) {
+  order: 1;
+
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: 80px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    margin-top: 40px;
+    width: 100%;
+    gap: 0px;
+    flex-direction: column;
+  }
+
+  .main section:nth-child(1) {
+    order: 1;
+
+  }
+
+  .main section:nth-child(2) {
+    order: 2;
+
+  }
+}

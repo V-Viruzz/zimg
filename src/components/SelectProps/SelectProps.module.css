@@ -1,0 +1,40 @@
+.sectionProps {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 80px;
+}
+
+.sectionProps select {
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #00000086;
+  border: solid 1px #4E4E4E;;
+  width: 123px;
+  height: 40px;
+  border-radius: 7px;
+  padding: 10px;
+}
+
+.sectionProps input {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  background-color: transparent;
+  width: 66px;
+  height: 32px;
+  border: solid 0px #fff;
+  border-bottom-width: 2px;
+}
+
+.sectionProps input::placeholder {
+  color: #7D7D7D;
+}
+
+@media (max-width: 1000px) {
+
+  .sectionProps {
+    flex-direction: column;
+    gap: 55px;
+  }
+}

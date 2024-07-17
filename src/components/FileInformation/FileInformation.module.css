@@ -1,0 +1,15 @@
+.fileInformation {
+  display: none;
+  gap: 25px;
+  justify-content: center;
+  margin: 22px 0;
+  letter-spacing: 0.06rem;
+  /* width: 300px; */
+  /* justify-content: space-evenly; */
+}
+
+@media (max-width: 1000px) {
+  .fileInformation {
+    display: flex;
+  }
+}

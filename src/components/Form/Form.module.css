@@ -1,4 +1,4 @@
-.form-button {
+/* .formButton {
   display: flex;
   width: 200px;
   height: 50px;
@@ -13,28 +13,40 @@
   border-radius: 12px;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 }
 
-.form-button:hover {
+.formButton:hover {
   background: #0abba6;
 }
 
-form .form-button-uploading {
+.formButtonUploading {
   background: #095950;
   color: #858585;
 }
 
-form .form-button-uploading:hover {
+.formButtonUploading:hover {
   border: none;
 }
-form label {
-  cursor: pointer;
-}
 
-.convert-button {
+.convertButton {
   background: #0a9887;
+} */
+
+.container {
+  display: flex;
+  justify-content: center;
 }
 
-#file-upload {
+.fileUpload {
   display: none;
+}
+
+@media (max-width: 1000px) {
+  
+  .space {
+    margin-bottom: 55px;
+  }
+
 }

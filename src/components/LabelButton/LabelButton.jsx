@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { ImageContext } from '../../context/image'
+import style from './LabelButton.module.css'
 
 function LabelButton ({ image }) {
   const { uploading } = useContext(ImageContext)
@@ -7,7 +8,7 @@ function LabelButton ({ image }) {
   if (image) {
     return (
       <button
-        className={`form-button convert-button ${uploading ? 'form-button-uploading' : null}`}
+        className={`${style.formButton} ${style.convertButton} ${uploading ? `${style.formButtonUploading}` : ''}`}
         type='submit'
       >Convert
       </button>
@@ -16,7 +17,7 @@ function LabelButton ({ image }) {
 
   return (
     <label
-      className={`form-button ${uploading ? 'form-button-uploading' : null}`}
+      className={`${style.formButton} ${uploading ? `${style.formButtonUploading}` : ''}`}
       htmlFor='file-upload'
       onClick={null}
     >Select file

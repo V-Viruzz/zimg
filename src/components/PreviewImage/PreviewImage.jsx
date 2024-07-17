@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react'
 import { ImageContext } from '../../context/image'
-import './PreviewImage.css'
+import style from './PreviewImage.module.css'
+import CloseIcon from '../Icons/CloseIcon'
 
 function PreviewImage () {
   const [hover, setHover] = useState(false)
@@ -19,64 +20,56 @@ function PreviewImage () {
     handleHover()
   }
 
-  const estilo = {
-    display: hover ? 'block' : 'none'
-  }
-
   const Information = () => {
     return (
       <>
         {
-        imagePreview
-          ? <p>{imagePreview.name} </p>
-          : ''
+          imagePreview
+            ? <p>{imagePreview.name} </p>
+            : ''
         }
 
         {
-        imagePreview
-          ? <p>{imagePreview.width}x${imagePreview.height}</p>
-          : ''
+          imagePreview
+            ? <p>{imagePreview.width}x{imagePreview.height}</p>
+            : ''
         }
 
         {
-        imagePreview
-          ? <p>{imagePreview.size}</p>
-          : ''
+          imagePreview
+            ? <p>{imagePreview.size}</p>
+            : ''
         }
       </>
     )
   }
 
   return (
-    <section className='section-image'>
+    <section className={style.sectionImage}>
 
       <div
-        className='preview'
+        className={style.preview}
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
       >
-        <div className='preview-conteiner-btn-exit'>
-          {
-          imagePreview
-            ? <div className='btn-exit' style={estilo} onClick={handleClick}>×</div>
-            : ''
-          }
+        <div className={`${style.buttonContainer} ${imagePreview === null ? `${style.hidden}` : ''}`}>
+          <div className={style.btnExit} onClick={handleClick}>
+            <CloseIcon />
+          </div>
         </div>
         {
-        imagePreview
-          ? <img id='preview-selected-image' src={imagePreview.url} />
-          : <p>Image preview</p>
+          imagePreview
+            ? <img id='preview-selected-image' src={imagePreview.url} />
+            : <p>Preview</p>
         }
 
       </div>
-      <div className='image-info'>
-
+      <div className={style.information}>
         {
-        uploading
-          ? <p>uploading file...</p>
-          : <Information />
+          uploading
+            ? <p>uploading file...</p>
+            : <Information />
         }
-
       </div>
     </section>
   )

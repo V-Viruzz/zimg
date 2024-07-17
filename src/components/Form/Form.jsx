@@ -2,7 +2,7 @@ import useImageUploader from '../../hooks/useImageUploader'
 import useImagePreview from '../../hooks/useImagePreview'
 import LabelButton from '../LabelButton/LabelButton'
 import postProps from '../../services/postProps'
-import './Form.css'
+import style from './Form.module.css'
 
 function Form () {
   const { props, uploadImage } = useImageUploader(null)
@@ -20,10 +20,14 @@ function Form () {
   }
 
   return (
-    <section className='section-input'>
-      <form onSubmit={handleSubmit} encType='multipart/form-data'>
-
+    <div className={`${style.container} ${imagePreview !== null ? '' : `${style.space}`}`}>
+      <form
+        className={style.form}
+        onSubmit={handleSubmit}
+        encType='multipart/form-data'
+      >
         <input
+          className={style.fileUpload}
           name='file'
           type='file'
           id='file-upload'
@@ -33,7 +37,7 @@ function Form () {
         />
         <LabelButton image={imagePreview} />
       </form>
-    </section>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 import { PropsContext } from '../../context/props'
-import './SelectProps.css'
+import style from './SelectProps.module.css'
 
 function SelectProps () {
   const [width, setWidth] = useState('')
@@ -28,10 +28,12 @@ function SelectProps () {
   }
 
   return (
-    <section className='section-props'>
+    <div className={style.sectionProps}>
       <div>
         <select
-          name='select' required onChange={(event) => setSelectProps(prevState => ({
+          required
+          name='select'
+          onChange={(event) => setSelectProps(prevState => ({
             ...prevState,
             format: event.target.value
           }))}
@@ -48,20 +50,22 @@ function SelectProps () {
         </select>
       </div>
 
-      <div><input
-        placeholder='Width'
-        value={width}
-        type='text' onChange={handleWidthChange}
-           />
+      <div>
+        <input
+          placeholder='Width'
+          value={width}
+          type='text' onChange={handleWidthChange}
+        />
       </div>
-      <div><input
-        placeholder='Height'
-        value={height}
-        type='text' onChange={handleHeightChange}
-           />
+      <div>
+        <input
+          placeholder='Height'
+          value={height}
+          type='text' onChange={handleHeightChange}
+        />
       </div>
 
-    </section>
+    </div>
   )
 }
 
