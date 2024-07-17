@@ -13,7 +13,6 @@
   border-radius: 12px;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
 }
 
@@ -26,8 +25,7 @@
 }
 
 .formButtonUploading {
-  background: #037e49;
-  color: #858585;
+  background: #025c35;
 }
 
 .formButtonUploading:hover {
